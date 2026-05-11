@@ -60,6 +60,12 @@ sudo ./scripts/deploy.sh
 sudo systemctl reload nginx
 ```
 
+Eller bruk den korte serverkommandoen:
+
+```bash
+sudo deploy-reseptor
+```
+
 ## Domene og DNS
 
 For å få siden raskt opp igjen er det enklest å:
