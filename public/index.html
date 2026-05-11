@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+  <meta name="description" content="Reseptor er et norsk spesialistsenter i rus- og avhengighetsmedisin. Vi kobler legespesialister med klinikker og helseforetak som trenger faglig tyngde i TSB og LAR.">
+  <meta name="keywords" content="rus og avhengighet, TSB, LAR, spesialist, rusbehandling, legemiddelassistert rehabilitering, helseforetak">
+  <meta property="og:title" content="Reseptor — Spesialisthub i rus og avhengighet">
+  <meta property="og:description" content="Legespesialister i rus- og avhengighetsmedisin. Klinisk bistand og fagutvikling for klinikker og helseforetak.">
+  <meta property="og:url" content="https://reseptor.no">
+  <meta name="robots" content="index, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reseptor — Spesialisthub i rus og avhengighet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:      #1a3557;
+  --navy-mid:  #234872;
+  --teal:      #1D9E75;
+  --teal-soft: #5DCAA5;
+  --teal-pale: #edf7f3;
+  --cream:     #f7f6f3;
+  --white:     #ffffff;
+  --text:      #1a2530;
+  --muted:     #5f7080;
+  --light:     #9aaabb;
+  --border:    rgba(26,53,87,0.09);
+  --sans:      'DM Sans', system-ui, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--white);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── LOGO ── */
+.logo {
+  text-decoration: none;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0;
+}
+.logo-text {
+  font-family: var(--sans);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: -0.6px;
+  line-height: 1;
+}
+.logo-line {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: var(--teal);
+  opacity: 0.5;
+  border-radius: 1px;
+  margin-top: 4px;
+}
+.logo-dark .logo-text { color: rgba(255,255,255,0.6); }
+.logo-dark .logo-line { background: rgba(93,202,165,0.35); }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 20px 0;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+nav.scrolled {
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 var(--border);
+}
+.nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--navy); }
+.nav-pill {
+  font-size: 13.5px !important;
+  font-weight: 500 !important;
+  color: var(--teal) !important;
+  border: 1px solid rgba(29,158,117,0.3);
+  padding: 8px 20px;
+  border-radius: 100px;
+  transition: all 0.2s !important;
+}
+.nav-pill:hover {
+  background: var(--teal) !important;
+  color: white !important;
+  border-color: var(--teal) !important;
+}
+
+/* mobile nav toggle */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--navy);
+  border-radius: 1px;
+  transition: all 0.25s;
+}
+.nav-mobile {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--white);
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--navy);
+  text-decoration: none;
+}
+.nav-mobile-close {
+  position: absolute;
+  top: 22px; right: 24px;
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--navy);
+  line-height: 1;
+}
+
+/* ── HERO ── */
+.hero {
+  padding: 180px 40px 100px;
+  text-align: center;
+  background: var(--white);
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: up 0.6s 0.1s forwards;
+}
+.dot { width: 4px; height: 4px; border-radius: 50%; background: var(--teal); opacity: 0.5; display: inline-block; }
+
+.hero h1 {
+  font-size: clamp(38px, 6vw, 72px);
+  font-weight: 600;
+  line-height: 1.08;
+  color: var(--navy);
+  max-width: 720px;
+  margin: 0 auto 24px;
+  letter-spacing: -1.5px;
+  opacity: 0;
+  animation: up 0.6s 0.2s forwards;
+}
+.hero h1 span { color: var(--teal); font-weight: 300; }
+
+.hero-sub {
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--muted);
+  max-width: 480px;
+  margin: 0 auto 48px;
+  line-height: 1.78;
+  opacity: 0;
+  animation: up 0.6s 0.3s forwards;
+}
+.hero-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: up 0.6s 0.4s forwards;
+}
+.btn-dark {
+  background: var(--navy);
+  color: white;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 13px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+.btn-dark:hover { background: var(--navy-mid); transform: translateY(-1px); }
+.btn-ghost {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s;
+  white-space: nowrap;
+}
+.btn-ghost:hover { color: var(--navy); }
+
+/* keywords row */
+.hero-kw {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 64px;
+  opacity: 0;
+  animation: fadeIn 0.8s 0.8s forwards;
+}
+.kw-line { height: 1px; flex: 1; max-width: 160px; background: var(--border); }
+.kw-inner { display: flex; }
+.kw {
+  padding: 0 28px;
+  text-align: center;
+  border-right: 1px solid var(--border);
+}
+.kw:last-child { border-right: none; }
+.kw-val {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: -0.02em;
+}
+.kw-label {
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--light);
+  margin-top: 3px;
+}
+
+/* ── RULE ── */
+.rule { max-width: 1080px; margin: 0 auto; height: 1px; background: var(--border); }
+
+/* ── SECTION BASE ── */
+.section { padding: 88px 40px; }
+.section-inner { max-width: 1080px; margin: 0 auto; }
+.section-tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 14px;
+}
+h2 {
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.1;
+  letter-spacing: -0.8px;
+}
+h2 span { color: var(--teal); font-weight: 300; }
+.lead {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.78;
+  max-width: 460px;
+}
+
+/* ── WHY ── */
+.why { background: var(--cream); }
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: start;
+}
+.why-left .lead { margin-top: 18px; }
+.why-list { display: flex; flex-direction: column; gap: 28px; }
+.why-item {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+.why-num {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--teal);
+  padding-top: 3px;
+  letter-spacing: 0.02em;
+}
+.why-item h3 {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 5px;
+  letter-spacing: -0.01em;
+}
+.why-item p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── SERVICES ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-top: 44px;
+}
+.svc {
+  background: var(--white);
+  padding: 36px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background 0.2s;
+}
+.svc:hover { background: var(--teal-pale); }
+.svc-num {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--light);
+}
+.svc h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.25;
+  letter-spacing: -0.3px;
+}
+.svc p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.72;
+  flex: 1;
+}
+.svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.svc-featured {
+  grid-column: 1 / -1;
+  background: var(--teal-pale) !important;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  column-gap: 40px;
+  row-gap: 10px;
+}
+.svc-featured > div:first-child { flex-basis: 100%; }
+.svc-featured h3 { flex: 0 0 260px; font-size: 20px; }
+.svc-featured p { flex: 1; min-width: 240px; }
+.svc-featured .svc-tags { flex-basis: 100%; }
+.tag {
+  font-size: 10.5px;
+  font-weight: 500;
+  color: var(--teal);
+  background: rgba(29,158,117,0.09);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+/* ── CASES ── */
+.cases { background: var(--cream); }
+.cases-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: end;
+  margin-bottom: 44px;
+}
+.case-list {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.case-row {
+  background: var(--white);
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 140px 1fr 20px;
+  gap: 24px;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.18s;
+}
+.case-row:last-child { border-bottom: none; }
+.case-row:hover { background: #f0faf6; }
+.case-type {
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--light);
+}
+.case-row h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+  letter-spacing: -0.2px;
+}
+.case-row p {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.6;
+}
+.case-arrow {
+  color: var(--teal);
+  font-size: 15px;
+  opacity: 0.3;
+  transition: opacity 0.2s, transform 0.2s;
+  text-align: right;
+}
+.case-row:hover .case-arrow { opacity: 0.9; transform: translateX(3px); }
+
+/* ── OM OSS ── */
+.team { background: var(--white); }
+.team-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: end;
+  margin-bottom: 56px;
+}
+.team-intro .lead { margin-top: 18px; }
+
+/* experience bar */
+.team-exp {
+  background: var(--teal-pale);
+  border: 1px solid rgba(29,158,117,0.12);
+  border-radius: 10px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+.team-exp-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  flex-shrink: 0;
+}
+.team-exp p {
+  font-size: 13.5px;
+  font-weight: 400;
+  color: var(--navy);
+  line-height: 1.6;
+}
+
+/* team grid */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+  margin-bottom: 52px;
+}
+.team-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.team-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  overflow: hidden;
+  position: relative;
+}
+.team-photo-initials {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  opacity: 0.18;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+.team-photo-label {
+  font-size: 9.5px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--light);
+}
+.team-name {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: -0.2px;
+  line-height: 1.2;
+}
+.team-title {
+  font-size: 12.5px;
+  font-weight: 400;
+  color: var(--teal);
+  margin-top: 2px;
+}
+.team-bio {
+  font-size: 12.5px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.65;
+  margin-top: 4px;
+}
+
+/* recruit strip */
+.team-recruit {
+  border-top: 1px solid var(--border);
+  padding-top: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.team-recruit-text h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: -0.2px;
+  margin-bottom: 6px;
+}
+.team-recruit-text p {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.btn-teal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(29,158,117,0.08);
+  color: var(--teal);
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 11px 24px;
+  border-radius: 100px;
+  text-decoration: none;
+  border: 1px solid rgba(29,158,117,0.2);
+  transition: all 0.2s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.btn-teal:hover {
+  background: var(--teal);
+  color: white;
+  border-color: var(--teal);
+}
+
+/* ── CONTACT ── */
+.contact { background: var(--navy); }
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.contact h2 { color: white; }
+.contact h2 span { color: var(--teal-soft); }
+.contact .section-tag { color: rgba(255,255,255,0.28); }
+.contact-body {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.78;
+  margin-top: 16px;
+}
+.contact-right { display: flex; flex-direction: column; gap: 22px; padding-top: 42px; }
+.contact-email-link {
+  font-size: 22px;
+  font-weight: 400;
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 22px;
+  display: block;
+  transition: color 0.2s;
+  letter-spacing: -0.3px;
+}
+.contact-email-link:hover { color: var(--teal-soft); }
+.contact-note {
+  font-size: 13px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.28);
+  line-height: 1.65;
+}
+.btn-outline-w {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 400;
+  padding: 12px 26px;
+  border-radius: 100px;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.16);
+  transition: all 0.2s;
+  width: fit-content;
+  background: rgba(255,255,255,0.05);
+}
+.btn-outline-w:hover { background: var(--teal); border-color: var(--teal); }
+
+/* ── FOOTER ── */
+footer { background: #0d1c2b; padding: 24px 40px; }
+.footer-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-meta { font-size: 12px; color: rgba(255,255,255,0.18); letter-spacing: 0.03em; }
+
+/* ── ANIMATIONS ── */
+@keyframes up {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.07s; }
+.d2 { transition-delay: 0.14s; }
+.d3 { transition-delay: 0.21s; }
+.d4 { transition-delay: 0.28s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .team-grid { grid-template-columns: repeat(3, 1fr); }
+  .team-intro { grid-template-columns: 1fr; gap: 24px; }
+}
+
+@media (max-width: 768px) {
+  /* nav */
+  .nav-inner { padding: 0 20px; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+
+  /* hero */
+  .hero { padding: 110px 24px 72px; }
+  .hero h1 { letter-spacing: -0.8px; }
+  .hero-btns { flex-direction: column; align-items: center; gap: 12px; }
+  .btn-ghost { margin-top: 4px; }
+  .hero-kw { display: none; }
+
+  /* sections */
+  .section { padding: 60px 24px; }
+
+  /* why */
+  .why-grid { grid-template-columns: 1fr; gap: 36px; }
+
+  /* services */
+  .services-grid { grid-template-columns: 1fr; }
+
+  /* cases */
+  .cases-header { grid-template-columns: 1fr; gap: 20px; }
+  .case-row { grid-template-columns: 1fr 20px; gap: 8px; }
+  .case-type { display: none; }
+
+  /* team */
+  .team-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .team-recruit { flex-direction: column; align-items: flex-start; gap: 20px; }
+
+  /* contact */
+  .contact-inner { grid-template-columns: 1fr; gap: 36px; }
+  .contact-email-link { font-size: 18px; }
+
+  /* footer */
+  footer { padding: 20px 24px; }
+  .footer-inner { flex-direction: column; gap: 8px; text-align: center; }
+
+  .rule { margin: 0 24px; }
+}
+
+@media (max-width: 480px) {
+  .hero h1 { font-size: 36px; }
+  h2 { font-size: 26px; }
+  .nav-inner { padding: 0 16px; }
+  .section { padding: 52px 16px; }
+  footer { padding: 20px 16px; }
+  .rule { margin: 0 16px; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="logo">
+      <span class="logo-text">reseptor</span>
+      <span class="logo-line"></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#tjenester">Tjenester</a></li>
+      <li><a href="#hvorfor">Hvorfor oss</a></li>
+      <li><a href="#arbeidsomrader">Arbeidsområder</a></li>
+      <li><a href="#om-oss">Om oss</a></li>
+      <li><a href="#psykolog">Psykolog</a></li>
+      <li><a href="#kontakt" class="nav-pill">Ta kontakt</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" aria-label="Meny">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="nav-mobile" id="mobileNav">
+  <button class="nav-mobile-close" id="navClose">×</button>
+  <a href="#tjenester" class="nav-mobile-link">Tjenester</a>
+  <a href="#hvorfor" class="nav-mobile-link">Hvorfor oss</a>
+  <a href="#arbeidsomrader" class="nav-mobile-link">Arbeidsområder</a>
+  <a href="#om-oss" class="nav-mobile-link">Om oss</a>
+  <a href="#psykolog" class="nav-mobile-link">Psykolog</a>
+  <a href="#kontakt" class="nav-mobile-link" style="color:var(--teal)">Ta kontakt</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    Spesialisthub · Rus og avhengighet
+    <span class="dot"></span>
+  </div>
+  <h1>Klinisk tyngde.<br><span>Klok fornyelse.</span></h1>
+  <p class="hero-sub">
+    Reseptor kobler legespesialister i rus- og avhengighetsmedisin med klinikker og helseforetak som trenger mer enn bemanning alene.
+  </p>
+  <div class="hero-btns">
+    <a href="#kontakt" class="btn-dark">Ta kontakt</a>
+    <a href="#tjenester" class="btn-ghost">Se hva vi tilbyr →</a>
+  </div>
+  <div class="hero-kw">
+    <div class="kw-line"></div>
+    <div class="kw-inner">
+      <div class="kw">
+        <div class="kw-val">TSB</div>
+        <div class="kw-label">Tverrfaglig spesialisert</div>
+      </div>
+      <div class="kw">
+        <div class="kw-val">LAR</div>
+        <div class="kw-label">Legemiddelassistert</div>
+      </div>
+      <div class="kw">
+        <div class="kw-val">Anbud</div>
+        <div class="kw-label">Offentlige rammeavtaler</div>
+      </div>
+    </div>
+    <div class="kw-line"></div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- WHY -->
+<section class="section why" id="hvorfor">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div class="why-left">
+        <div class="section-tag reveal">Hvorfor Reseptor</div>
+        <h2 class="reveal">Mer enn en<br><span>vikartjeneste</span></h2>
+        <p class="lead reveal">Strukturell mangel på spesialister i rusbehandling gjør at mange klinikker strekker seg langt for å opprettholde faglig forsvarlig drift. Vi fyller det gapet.</p>
+      </div>
+      <div class="why-list">
+        <div class="why-item reveal">
+          <div class="why-num">01</div>
+          <div>
+            <h3>Spesialistkompetanse, ikke generalist</h3>
+            <p>Alle Reseptors leger er spesialister i rus- og avhengighetsmedisin — dedikerte fagpersoner med dybde i TSB og LAR.</p>
+          </div>
+        </div>
+        <div class="why-item reveal d1">
+          <div class="why-num">02</div>
+          <div>
+            <h3>Fleksibelt og forutsigbart</h3>
+            <p>Retaineravtaler gir klinikker fast kapasitet og forutsigbarhet, uten de administrative byrdene ved fast ansettelse.</p>
+          </div>
+        </div>
+        <div class="why-item reveal d2">
+          <div class="why-num">03</div>
+          <div>
+            <h3>Offentlig og privat sektor</h3>
+            <p>Tilrettelagt for samarbeid med private behandlingssentre og helseforetak — inkludert anbudsbaserte rammeavtaler via Doffin.</p>
+          </div>
+        </div>
+        <div class="why-item reveal d3">
+          <div class="why-num">04</div>
+          <div>
+            <h3>Faglig merverdi</h3>
+            <p>Utover direkte klinisk bistand kan vi bidra med retningslinjer, metodeutvikling og veiledning som styrker fagmiljøet.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- SERVICES -->
+<section class="section" id="tjenester">
+  <div class="section-inner">
+    <div class="section-tag reveal">Tjenester</div>
+    <h2 class="reveal">Det vi <span>gjør</span></h2>
+    <div class="services-grid reveal">
+      <div class="svc">
+        <div class="svc-num">01</div>
+        <h3>Klinisk bistand og vikartjenester</h3>
+        <p>Spesialistkompetanse der behovet er akutt, krevende eller vanskelig å dekke med eget personale. Vi kan gå inn raskt og trygt.</p>
+        <div class="svc-tags">
+          <span class="tag">Rus- og avhengighetsmedisin</span>
+          <span class="tag">TSB</span>
+          <span class="tag">LAR</span>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="svc-num">02</div>
+        <h3>Faglig utvikling og retningslinjer</h3>
+        <p>Vi gjør kunnskap lettere å bruke i praksis. Metodebøker, kliniske rammeverk og retningslinjer som faktisk tas i bruk.</p>
+        <div class="svc-tags">
+          <span class="tag">Metodeutvikling</span>
+          <span class="tag">Retningslinjer</span>
+          <span class="tag">Workshops</span>
+        </div>
+      </div>
+      <div class="svc">
+        <div class="svc-num">03</div>
+        <h3>Rådgivning og rammeavtaler</h3>
+        <p>Vi bistår helseforetak og private aktører med rådgivning, og er forberedt på offentlige anbudsprosesser via Doffin.</p>
+        <div class="svc-tags">
+          <span class="tag">Helseforetak</span>
+          <span class="tag">Anbud / Doffin</span>
+          <span class="tag">Rammeavtale</span>
+        </div>
+      </div>
+      <div class="svc svc-featured">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div class="svc-num" style="color: var(--teal);">04</div>
+          <span style="font-size:10.5px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#1D9E75;">Under utvikling</span>
+        </div>
+        <h3>Anker — Klinisk beslutningsstøtte</h3>
+        <p>Prosjektet er foreløpig ikke aktivt, men utvikles som en mulig fremtidig tjeneste for faglig støtte i TSB.</p>
+        <div class="svc-tags">
+          <span class="tag">Under utvikling</span>
+          <span class="tag">TSB</span>
+          <span class="tag">Beslutningsstøtte</span>
+        </div>
+        <div style="margin-top:16px;font-size:13px;color:#1D9E75;font-weight:500;">Mer informasjon kommer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- CASES -->
+<section class="section cases" id="arbeidsomrader">
+  <div class="section-inner">
+    <div class="cases-header">
+      <div>
+        <div class="section-tag reveal">Arbeidsområder</div>
+        <h2 class="reveal">Slik kan vi <span>bidra</span></h2>
+      </div>
+      <p class="lead reveal">Konkrete situasjoner der Reseptor går inn — i klinikk, i struktur og i utvikling.</p>
+    </div>
+    <div class="case-list reveal">
+      <div class="case-row">
+        <div class="case-type">Klinisk kapasitet</div>
+        <div>
+          <h3>Når driften trenger spesialistkompetanse — raskt</h3>
+          <p>Erfarne leger som kan gå inn i sårbare bemanningssituasjoner med faglig tyngde og trygghet.</p>
+        </div>
+        <div class="case-arrow">→</div>
+      </div>
+      <div class="case-row">
+        <div class="case-type">Systemforbedring</div>
+        <div>
+          <h3>Når kunnskap finnes, men ikke er lett nok å bruke</h3>
+          <p>Metodeverk og beslutningsstøtte som gjør gode faglige vurderinger enklere i en travel hverdag.</p>
+        </div>
+        <div class="case-arrow">→</div>
+      </div>
+      <div class="case-row">
+        <div class="case-type">Offentlig og privat sektor</div>
+        <div>
+          <h3>Når klinikker trenger stabil spesialistkapasitet</h3>
+          <p>Rammeavtaler og langvarige samarbeid med helseforetak og private behandlingsinstitusjoner som ønsker forutsigbar tilgang til TSB-kompetanse.</p>
+        </div>
+        <div class="case-arrow">→</div>
+      </div>
+      <div class="case-row">
+        <div class="case-type">Fagutvikling</div>
+        <div>
+          <h3>Når fagmiljøet vil styrkes på systemnivå</h3>
+          <p>Workshops, retningslinjeutvikling og veiledning som løfter hele teamets kompetanse over tid.</p>
+        </div>
+        <div class="case-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- OM OSS -->
+<section class="section team" id="om-oss">
+  <div class="section-inner">
+
+    <div class="team-intro">
+      <div>
+        <div class="section-tag reveal">Om oss</div>
+        <h2 class="reveal">Leger som <span>kjenner feltet</span></h2>
+        <p class="lead reveal">Reseptor er bygget av spesialister som jobber klinisk selv. Vi kjenner TSB-hverdagen fra innsiden — det er utgangspunktet for alt vi gjør.</p>
+        <div class="team-exp reveal">
+          <div class="team-exp-dot"></div>
+          <p>Våre leger har erfaring fra ledende behandlingsinstitusjoner i norsk rusbehandling.</p>
+        </div>
+      </div>
+      <div class="reveal" style="display:flex; align-items:flex-end;">
+        <p class="lead" style="color: var(--light); font-size:15px; line-height:1.7;">Et lite team med stor faglig tyngde. Vi er alle spesialister i rus- og avhengighetsmedisin, og vi jobber tett — med hverandre og med institusjonene vi samarbeider med.</p>
+      </div>
+    </div>
+
+    <div class="team-grid">
+
+      <div class="team-card reveal">
+        <div class="team-photo">
+          <div class="team-photo-initials">JW</div>
+          <div class="team-photo-label">Bilde kommer</div>
+        </div>
+        <div>
+          <div class="team-name">Jon Wisløff</div>
+          <div class="team-title">Spesialist, rus- og avhengighetsmedisin</div>
+          
+        </div>
+      </div>
+
+      <div class="team-card reveal d1">
+        <div class="team-photo">
+          <div class="team-photo-initials">MS</div>
+          <div class="team-photo-label">Bilde kommer</div>
+        </div>
+        <div>
+          <div class="team-name">Martin Steen</div>
+          <div class="team-title">Spesialist, rus- og avhengighetsmedisin</div>
+          
+        </div>
+      </div>
+
+      <div class="team-card reveal d2">
+        <div class="team-photo">
+          <div class="team-photo-initials">JTE</div>
+          <div class="team-photo-label">Bilde kommer</div>
+        </div>
+        <div>
+          <div class="team-name">Jardar Tureson Erlid</div>
+          <div class="team-title">Spesialist, rus- og avhengighetsmedisin</div>
+          
+        </div>
+      </div>
+
+      <div class="team-card reveal d3">
+        <div class="team-photo">
+          <div class="team-photo-initials">BM</div>
+          <div class="team-photo-label">Bilde kommer</div>
+        </div>
+        <div>
+          <div class="team-name">Bjarne Marcussen</div>
+          <div class="team-title">Spesialist, rus- og avhengighetsmedisin</div>
+          
+        </div>
+      </div>
+
+      <div class="team-card reveal d4">
+        <div class="team-photo">
+          <div class="team-photo-initials">LEF</div>
+          <div class="team-photo-label">Bilde kommer</div>
+        </div>
+        <div>
+          <div class="team-name">Lars Erik Fremstad</div>
+          <div class="team-title">Spesialist, rus- og avhengighetsmedisin</div>
+          
+        </div>
+      </div>
+
+    </div>
+
+    <div class="team-recruit reveal">
+      <div class="team-recruit-text">
+        <h3>Er du spesialist og vil jobbe med oss?</h3>
+        <p>Vi bygger et fagmiljø der spesialister bidrar på tvers av klinikk, metodeutvikling og rådgivning. Ta kontakt.</p>
+      </div>
+      <a href="#kontakt" class="btn-teal">Ta kontakt →</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- RESEPTOR PSYKOLOG -->
+<section class="section" id="psykolog" style="background: var(--cream);">
+  <div class="section-inner">
+
+    <div class="team-intro">
+      <div>
+        <div class="section-tag reveal">Reseptor Psykolog</div>
+        <h2 class="reveal">Psykologspesialister i <span>rus og avhengighet</span></h2>
+        <p class="lead reveal">Reseptor Psykolog er under oppbygging. Vi ser etter psykologspesialister med erfaring fra TSB som ønsker å jobbe med oss — og med institusjonene vi samarbeider med.</p>
+      </div>
+      <div class="reveal" style="display:flex; align-items:flex-end;">
+        <p class="lead" style="color: var(--light); font-size:15px; line-height:1.7;">Psykologer og leger utfyller hverandre i TSB-behandling. Målet er å tilby institusjonene et komplett spesialistmiljø under én avtale.</p>
+      </div>
+    </div>
+
+    <div class="team-recruit reveal" style="margin-top: 8px;">
+      <div class="team-recruit-text">
+        <h3>Er du psykologspesialist?</h3>
+        <p>Vi bygger et fagmiljø der spesialister bidrar på tvers av klinikk, metodeutvikling og rådgivning. Ta kontakt.</p>
+      </div>
+      <a href="#kontakt" class="btn-teal">Ta kontakt →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="kontakt">
+  <div class="section-inner">
+    <div class="contact-inner">
+      <div>
+        <div class="section-tag reveal">Kontakt</div>
+        <h2 class="reveal">La oss <span>snakke</span></h2>
+        <p class="contact-body reveal">Vi er tilgjengelige for en uforpliktende samtale om hvordan Reseptor kan bistå din klinikk eller ditt helseforetak.</p>
+      </div>
+      <div class="contact-right reveal">
+        
+        <a href="mailto:post@reseptor.no" class="btn-outline-w">Send oss en e-post</a>
+        <p class="contact-note">Vi svarer vanligvis innen én arbeidsdag. Fortell gjerne kort om situasjonen, så finner vi raskt ut om vi kan hjelpe.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="#top" class="logo logo-dark">
+      <span class="logo-text">reseptor</span>
+      <span class="logo-line"></span>
+    </a>
+    <div class="footer-meta">Reseptor AS · Org.nr. 931 019 708 · Oslo, Norge</div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll state
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  // Mobile nav
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const navClose  = document.getElementById('navClose');
+  hamburger.addEventListener('click', () => mobileNav.classList.add('open'));
+  navClose.addEventListener('click',  () => mobileNav.classList.remove('open'));
+  document.querySelectorAll('.nav-mobile-link').forEach(a => {
+    a.addEventListener('click', () => mobileNav.classList.remove('open'));
+  });
+
+  // Scroll reveal
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+</script>
+</body>
+</html>
