@@ -3,7 +3,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-TARGET_DIR="${TARGET_DIR:-/var/www/reseptor/current}"
+TARGET_DIR="${TARGET_DIR:-/var/www/reseptor.no/current}"
 SOURCE_DIR="$REPO_ROOT/public/"
 
 if ! command -v rsync >/dev/null 2>&1; then

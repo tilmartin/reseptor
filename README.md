@@ -14,7 +14,7 @@ Hold repo og publiserte filer adskilt:
 
 ```text
 /srv/reseptor/repo        Git-klone
-/var/www/reseptor/current Publiserte filer fra public/
+/var/www/reseptor.no/current Publiserte filer fra public/
 ```
 
 Det gjør det enkelt å:
@@ -26,7 +26,7 @@ Det gjør det enkelt å:
 ## Første oppsett på VPS
 
 ```bash
-sudo mkdir -p /srv/reseptor /var/www/reseptor/current
+sudo mkdir -p /srv/reseptor /var/www/reseptor.no/current
 cd /srv/reseptor
 git clone https://github.com/tilmartin/reseptor.git repo
 cd repo
