@@ -613,18 +613,23 @@ h2 span { color: var(--teal); font-weight: 300; }
   margin-top: 16px;
 }
 .contact-right { display: flex; flex-direction: column; gap: 22px; padding-top: 28px; }
-.contact-email-link {
+.contact-direct {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.contact-direct-link {
   font-size: 22px;
   font-weight: 400;
   color: white;
   text-decoration: none;
   border-bottom: 1px solid rgba(255,255,255,0.1);
-  padding-bottom: 22px;
+  padding-bottom: 14px;
   display: block;
   transition: color 0.2s;
   letter-spacing: -0.3px;
 }
-.contact-email-link:hover { color: var(--teal-soft); }
+.contact-direct-link:hover { color: var(--teal-soft); }
 .contact-note {
   font-size: 13px;
   font-weight: 300;
@@ -717,7 +722,7 @@ footer { background: #0d1c2b; padding: 24px 40px; }
 
   /* contact */
   .contact-inner { grid-template-columns: 1fr; gap: 36px; }
-  .contact-email-link { font-size: 18px; }
+  .contact-direct-link { font-size: 18px; }
 
   /* footer */
   footer { padding: 20px 24px; }
@@ -778,7 +783,7 @@ footer { background: #0d1c2b; padding: 24px 40px; }
   </div>
   <h1>Klinisk tyngde.<br><span>Klok fornyelse.</span></h1>
   <p class="hero-sub">
-    Reseptor kobler legespesialister i rus- og avhengighetsmedisin med klinikker og helseforetak som trenger mer enn bemanning alene.
+    Reseptor kobler klinikker og helseforetak med legespesialister i rus- og avhengighetsmedisin når det trengs klinisk tyngde, faglig støtte og stabil spesialistkapasitet.
   </p>
   <div class="hero-btns">
     <a href="#kontakt" class="btn-dark">Ta kontakt</a>
@@ -813,7 +818,7 @@ footer { background: #0d1c2b; padding: 24px 40px; }
       <div class="why-left">
         <div class="section-tag reveal">Hvorfor Reseptor</div>
         <h2 class="reveal">Mer enn en<br><span>vikartjeneste</span></h2>
-        <p class="lead reveal">Strukturell mangel på spesialister i rusbehandling gjør at mange klinikker strekker seg langt for å opprettholde faglig forsvarlig drift. Vi fyller det gapet.</p>
+        <p class="lead reveal">Mangel på spesialister i rusbehandling gjør at mange klinikker må strekke seg langt for å opprettholde faglig forsvarlig drift. Der går Reseptor inn med målrettet kapasitet og faglig trygghet.</p>
       </div>
       <div class="why-list">
         <div class="why-item reveal">
@@ -860,7 +865,7 @@ footer { background: #0d1c2b; padding: 24px 40px; }
       <div class="svc">
         <div class="svc-num">01</div>
         <h3>Klinisk bistand og vikartjenester</h3>
-        <p>Spesialistkompetanse der behovet er akutt, krevende eller vanskelig å dekke med eget personale. Vi kan gå inn raskt og trygt.</p>
+        <p>Spesialistkompetanse når behovet er akutt, krevende eller vanskelig å dekke internt. Vi kan gå inn raskt, trygt og med erfaring fra feltet.</p>
         <div class="svc-tags">
           <span class="tag">Rus- og avhengighetsmedisin</span>
           <span class="tag">TSB</span>
@@ -870,7 +875,7 @@ footer { background: #0d1c2b; padding: 24px 40px; }
       <div class="svc">
         <div class="svc-num">02</div>
         <h3>Faglig utvikling og retningslinjer</h3>
-        <p>Vi gjør kunnskap lettere å bruke i praksis. Metodebøker, kliniske rammeverk og retningslinjer som faktisk tas i bruk.</p>
+        <p>Vi gjør fagkunnskap lettere å bruke i praksis gjennom metodebøker, kliniske rammeverk og retningslinjer som fungerer i hverdagen.</p>
         <div class="svc-tags">
           <span class="tag">Metodeutvikling</span>
           <span class="tag">Retningslinjer</span>
@@ -880,7 +885,7 @@ footer { background: #0d1c2b; padding: 24px 40px; }
       <div class="svc">
         <div class="svc-num">03</div>
         <h3>Rådgivning og rammeavtaler</h3>
-        <p>Vi bistår helseforetak og private aktører med rådgivning, og er forberedt på offentlige anbudsprosesser via Doffin.</p>
+        <p>Vi bistår helseforetak og private aktører med rådgivning, avtalestruktur og forberedelse til offentlige anbudsprosesser via Doffin.</p>
         <div class="svc-tags">
           <span class="tag">Helseforetak</span>
           <span class="tag">Anbud / Doffin</span>
@@ -1036,12 +1041,15 @@ footer { background: #0d1c2b; padding: 24px 40px; }
       <div>
         <div class="section-tag reveal">Kontakt</div>
         <h2 class="reveal">La oss <span>snakke</span></h2>
-        <p class="contact-body reveal">Vi er tilgjengelige for en uforpliktende samtale om hvordan Reseptor kan bistå din klinikk eller ditt helseforetak.</p>
+        <p class="contact-body reveal">Ta kontakt for en uforpliktende samtale om hvordan Reseptor kan bistå din klinikk eller ditt helseforetak med spesialistkapasitet, fagutvikling eller rådgivning.</p>
       </div>
       <div class="contact-right reveal">
-        <a href="mailto:post@reseptor.no" class="contact-email-link">post@reseptor.no</a>
+        <div class="contact-direct">
+          <a href="mailto:post@reseptor.no" class="contact-direct-link">post@reseptor.no</a>
+          <a href="tel:+4799023322" class="contact-direct-link">+47 990 23 322</a>
+        </div>
         <a href="mailto:post@reseptor.no" class="btn-outline-w">Send oss en e-post</a>
-        <p class="contact-note">Vi svarer vanligvis innen én arbeidsdag. Fortell gjerne kort om situasjonen, så finner vi raskt ut om vi kan hjelpe.</p>
+        <p class="contact-note">Vi svarer vanligvis samme dag eller neste arbeidsdag. Ring gjerne hvis henvendelsen haster.</p>
       </div>
     </div>
   </div>
