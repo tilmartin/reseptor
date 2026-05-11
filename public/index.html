@@ -355,6 +355,7 @@ h2 span { color: var(--teal); font-weight: 300; }
   border-radius: 14px;
   overflow: hidden;
   margin-top: 44px;
+  box-shadow: 0 20px 50px rgba(26,53,87,0.04);
 }
 .svc {
   background: var(--white);
@@ -386,19 +387,6 @@ h2 span { color: var(--teal); font-weight: 300; }
   flex: 1;
 }
 .svc-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
-.svc-featured {
-  grid-column: 1 / -1;
-  background: var(--teal-pale) !important;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  column-gap: 40px;
-  row-gap: 10px;
-}
-.svc-featured > div:first-child { flex-basis: 100%; }
-.svc-featured h3 { flex: 0 0 260px; font-size: 20px; }
-.svc-featured p { flex: 1; min-width: 240px; }
-.svc-featured .svc-tags { flex-basis: 100%; }
 .tag {
   font-size: 10.5px;
   font-weight: 500;
@@ -426,14 +414,12 @@ h2 span { color: var(--teal); font-weight: 300; }
   background: var(--white);
   padding: 28px 32px;
   display: grid;
-  grid-template-columns: 140px 1fr 20px;
+  grid-template-columns: 140px 1fr;
   gap: 24px;
   align-items: center;
   border-bottom: 1px solid var(--border);
-  transition: background 0.18s;
 }
 .case-row:last-child { border-bottom: none; }
-.case-row:hover { background: #f0faf6; }
 .case-type {
   font-size: 10.5px;
   font-weight: 600;
@@ -454,14 +440,6 @@ h2 span { color: var(--teal); font-weight: 300; }
   font-weight: 300;
   line-height: 1.6;
 }
-.case-arrow {
-  color: var(--teal);
-  font-size: 15px;
-  opacity: 0.3;
-  transition: opacity 0.2s, transform 0.2s;
-  text-align: right;
-}
-.case-row:hover .case-arrow { opacity: 0.9; transform: translateX(3px); }
 
 /* ── OM OSS ── */
 .team { background: var(--white); }
@@ -515,7 +493,9 @@ h2 span { color: var(--teal); font-weight: 300; }
   width: 100%;
   aspect-ratio: 1;
   border-radius: 12px;
-  background: var(--cream);
+  background:
+    radial-gradient(circle at top, rgba(93,202,165,0.18), transparent 58%),
+    linear-gradient(180deg, #fbfbf8 0%, #f2f6f3 100%);
   border: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -524,21 +504,29 @@ h2 span { color: var(--teal); font-weight: 300; }
   gap: 8px;
   overflow: hidden;
   position: relative;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.team-photo::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  border: 1px solid rgba(26,53,87,0.08);
+}
+.team-card:hover .team-photo {
+  border-color: rgba(29,158,117,0.22);
+  box-shadow: 0 18px 40px rgba(26,53,87,0.08);
+  transform: translateY(-1px);
 }
 .team-photo-initials {
-  font-size: 22px;
-  font-weight: 600;
-  color: var(--navy);
-  opacity: 0.18;
-  letter-spacing: -0.5px;
-  line-height: 1;
-}
-.team-photo-label {
-  font-size: 9.5px;
+  font-size: 38px;
   font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--light);
+  color: var(--navy);
+  opacity: 0.72;
+  letter-spacing: -1px;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
 }
 .team-name {
   font-size: 14.5px;
@@ -624,7 +612,7 @@ h2 span { color: var(--teal); font-weight: 300; }
   line-height: 1.78;
   margin-top: 16px;
 }
-.contact-right { display: flex; flex-direction: column; gap: 22px; padding-top: 42px; }
+.contact-right { display: flex; flex-direction: column; gap: 22px; padding-top: 28px; }
 .contact-email-link {
   font-size: 22px;
   font-weight: 400;
@@ -720,7 +708,7 @@ footer { background: #0d1c2b; padding: 24px 40px; }
 
   /* cases */
   .cases-header { grid-template-columns: 1fr; gap: 20px; }
-  .case-row { grid-template-columns: 1fr 20px; gap: 8px; }
+  .case-row { grid-template-columns: 1fr; gap: 8px; }
   .case-type { display: none; }
 
   /* team */
@@ -763,7 +751,6 @@ footer { background: #0d1c2b; padding: 24px 40px; }
       <li><a href="#hvorfor">Hvorfor oss</a></li>
       <li><a href="#arbeidsomrader">Arbeidsområder</a></li>
       <li><a href="#om-oss">Om oss</a></li>
-      <li><a href="#psykolog">Psykolog</a></li>
       <li><a href="#kontakt" class="nav-pill">Ta kontakt</a></li>
     </ul>
     <button class="nav-hamburger" id="hamburger" aria-label="Meny">
@@ -779,7 +766,6 @@ footer { background: #0d1c2b; padding: 24px 40px; }
   <a href="#hvorfor" class="nav-mobile-link">Hvorfor oss</a>
   <a href="#arbeidsomrader" class="nav-mobile-link">Arbeidsområder</a>
   <a href="#om-oss" class="nav-mobile-link">Om oss</a>
-  <a href="#psykolog" class="nav-mobile-link">Psykolog</a>
   <a href="#kontakt" class="nav-mobile-link" style="color:var(--teal)">Ta kontakt</a>
 </div>
 
@@ -901,20 +887,6 @@ footer { background: #0d1c2b; padding: 24px 40px; }
           <span class="tag">Rammeavtale</span>
         </div>
       </div>
-      <div class="svc svc-featured">
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div class="svc-num" style="color: var(--teal);">04</div>
-          <span style="font-size:10.5px; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:#1D9E75;">Under utvikling</span>
-        </div>
-        <h3>Anker — Klinisk beslutningsstøtte</h3>
-        <p>Prosjektet er foreløpig ikke aktivt, men utvikles som en mulig fremtidig tjeneste for faglig støtte i TSB.</p>
-        <div class="svc-tags">
-          <span class="tag">Under utvikling</span>
-          <span class="tag">TSB</span>
-          <span class="tag">Beslutningsstøtte</span>
-        </div>
-        <div style="margin-top:16px;font-size:13px;color:#1D9E75;font-weight:500;">Mer informasjon kommer</div>
-      </div>
     </div>
   </div>
 </section>
@@ -938,7 +910,6 @@ footer { background: #0d1c2b; padding: 24px 40px; }
           <h3>Når driften trenger spesialistkompetanse — raskt</h3>
           <p>Erfarne leger som kan gå inn i sårbare bemanningssituasjoner med faglig tyngde og trygghet.</p>
         </div>
-        <div class="case-arrow">→</div>
       </div>
       <div class="case-row">
         <div class="case-type">Systemforbedring</div>
@@ -946,7 +917,6 @@ footer { background: #0d1c2b; padding: 24px 40px; }
           <h3>Når kunnskap finnes, men ikke er lett nok å bruke</h3>
           <p>Metodeverk og beslutningsstøtte som gjør gode faglige vurderinger enklere i en travel hverdag.</p>
         </div>
-        <div class="case-arrow">→</div>
       </div>
       <div class="case-row">
         <div class="case-type">Offentlig og privat sektor</div>
@@ -954,7 +924,6 @@ footer { background: #0d1c2b; padding: 24px 40px; }
           <h3>Når klinikker trenger stabil spesialistkapasitet</h3>
           <p>Rammeavtaler og langvarige samarbeid med helseforetak og private behandlingsinstitusjoner som ønsker forutsigbar tilgang til TSB-kompetanse.</p>
         </div>
-        <div class="case-arrow">→</div>
       </div>
       <div class="case-row">
         <div class="case-type">Fagutvikling</div>
@@ -962,7 +931,6 @@ footer { background: #0d1c2b; padding: 24px 40px; }
           <h3>Når fagmiljøet vil styrkes på systemnivå</h3>
           <p>Workshops, retningslinjeutvikling og veiledning som løfter hele teamets kompetanse over tid.</p>
         </div>
-        <div class="case-arrow">→</div>
       </div>
     </div>
   </div>
@@ -994,7 +962,6 @@ footer { background: #0d1c2b; padding: 24px 40px; }
       <div class="team-card reveal">
         <div class="team-photo">
           <div class="team-photo-initials">JW</div>
-          <div class="team-photo-label">Bilde kommer</div>
         </div>
         <div>
           <div class="team-name">Jon Wisløff</div>
@@ -1006,7 +973,6 @@ footer { background: #0d1c2b; padding: 24px 40px; }
       <div class="team-card reveal d1">
         <div class="team-photo">
           <div class="team-photo-initials">MS</div>
-          <div class="team-photo-label">Bilde kommer</div>
         </div>
         <div>
           <div class="team-name">Martin Steen</div>
@@ -1018,7 +984,6 @@ footer { background: #0d1c2b; padding: 24px 40px; }
       <div class="team-card reveal d2">
         <div class="team-photo">
           <div class="team-photo-initials">JTE</div>
-          <div class="team-photo-label">Bilde kommer</div>
         </div>
         <div>
           <div class="team-name">Jardar Tureson Erlid</div>
@@ -1030,7 +995,6 @@ footer { background: #0d1c2b; padding: 24px 40px; }
       <div class="team-card reveal d3">
         <div class="team-photo">
           <div class="team-photo-initials">BM</div>
-          <div class="team-photo-label">Bilde kommer</div>
         </div>
         <div>
           <div class="team-name">Bjarne Marcussen</div>
@@ -1042,7 +1006,6 @@ footer { background: #0d1c2b; padding: 24px 40px; }
       <div class="team-card reveal d4">
         <div class="team-photo">
           <div class="team-photo-initials">LEF</div>
-          <div class="team-photo-label">Bilde kommer</div>
         </div>
         <div>
           <div class="team-name">Lars Erik Fremstad</div>
@@ -1055,8 +1018,8 @@ footer { background: #0d1c2b; padding: 24px 40px; }
 
     <div class="team-recruit reveal">
       <div class="team-recruit-text">
-        <h3>Er du spesialist og vil jobbe med oss?</h3>
-        <p>Vi bygger et fagmiljø der spesialister bidrar på tvers av klinikk, metodeutvikling og rådgivning. Ta kontakt.</p>
+        <h3>Er du lege eller psykologspesialist?</h3>
+        <p>Vi bygger et fagmiljø for leger og psykologspesialister i rus- og avhengighetsmedisin som vil bidra på tvers av klinikk, metodeutvikling og rådgivning.</p>
       </div>
       <a href="#kontakt" class="btn-teal">Ta kontakt →</a>
     </div>
@@ -1065,32 +1028,6 @@ footer { background: #0d1c2b; padding: 24px 40px; }
 </section>
 
 <div class="rule"></div>
-
-<!-- RESEPTOR PSYKOLOG -->
-<section class="section" id="psykolog" style="background: var(--cream);">
-  <div class="section-inner">
-
-    <div class="team-intro">
-      <div>
-        <div class="section-tag reveal">Reseptor Psykolog</div>
-        <h2 class="reveal">Psykologspesialister i <span>rus og avhengighet</span></h2>
-        <p class="lead reveal">Reseptor Psykolog er under oppbygging. Vi ser etter psykologspesialister med erfaring fra TSB som ønsker å jobbe med oss — og med institusjonene vi samarbeider med.</p>
-      </div>
-      <div class="reveal" style="display:flex; align-items:flex-end;">
-        <p class="lead" style="color: var(--light); font-size:15px; line-height:1.7;">Psykologer og leger utfyller hverandre i TSB-behandling. Målet er å tilby institusjonene et komplett spesialistmiljø under én avtale.</p>
-      </div>
-    </div>
-
-    <div class="team-recruit reveal" style="margin-top: 8px;">
-      <div class="team-recruit-text">
-        <h3>Er du psykologspesialist?</h3>
-        <p>Vi bygger et fagmiljø der spesialister bidrar på tvers av klinikk, metodeutvikling og rådgivning. Ta kontakt.</p>
-      </div>
-      <a href="#kontakt" class="btn-teal">Ta kontakt →</a>
-    </div>
-
-  </div>
-</section>
 
 <!-- CONTACT -->
 <section class="section contact" id="kontakt">
