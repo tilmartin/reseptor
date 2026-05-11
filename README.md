@@ -65,7 +65,7 @@ sudo systemctl reload nginx
 For å få siden raskt opp igjen er det enklest å:
 
 1. Hoste nettsiden på Hostinger VPS
-2. Peke `reseptor.no` og `www.reseptor.no` til VPS-en
+2. La navnetjenere bli stående hos one.com og bare peke `reseptor.no` og `www.reseptor.no` til VPS-en
 3. Beholde e-postposter uendret hvis dere fortsatt bruker Google Workspace
 
 Hvis dere senere vil flytte selve domeneregistreringen også, kan det tas som et eget steg.
